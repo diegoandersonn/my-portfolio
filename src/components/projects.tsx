@@ -12,8 +12,8 @@ export default function Projects() {
       title: "FutWorld",
       description:
         language === "portuguese"
-          ? "Um projeto pessoal que permite o usuário criar times e jogadores. Utilizando JS, ReactJS, StyledComponents e React Router Dom"
-          : "A personal project that allows the user to create teams and players. Using JS, ReactJS, StyledComponents and React Router Dom",
+          ? "Um projeto monorepo pessoal que permite o usuário criar times e jogadores. Desevolvovido utilizando TypeScript, ReactJS, Tailwind CSS, NodeJS and Fastify"
+          : "A personal monorepo project that allows the user to create teams and players. Developed using TypeScript, ReactJS, Tailwind CSS, NodeJS and Fastify",
       image: futWorld,
       link: "https://github.com/diegoandersonn/fut-world",
     },
@@ -21,8 +21,8 @@ export default function Projects() {
       title: "Pomodoro App",
       description:
         language === "portuguese"
-          ? "Um projeto de um curso que ajuda o usuário a se manterem produtivos gerenciado tarefas com a técnica de Pomodoro. Utilizando TypeScript, ReactJS, StyledComponents"
-          : "A course project that helps user stay productive by managing tasks with the Pomodoro technique. Using TypeScript, ReactJS, StyledComponents.",
+          ? "Um projeto de um curso que ajuda o usuário a se manterem produtivos gerenciado tarefas com a técnica de Pomodoro. Desevolvovido utilizando TypeScript, ReactJS, StyledComponents"
+          : "A course project that helps user stay productive by managing tasks with the Pomodoro technique. Developed using TypeScript, ReactJS, StyledComponents.",
       image: pomodoroApp,
       link: "https://github.com/diegoandersonn/pomodoro-app",
     },
@@ -30,8 +30,8 @@ export default function Projects() {
       title: "Spotify UI",
       description:
         language === "portuguese"
-          ? "Recriei a interface do Spotify Utilizando TypeScript, ReactJS e TailwindCss"
-          : "Recreated Spotify's user interface. Using TypeScript, ReactJS and TailwindCss.",
+          ? "Recriei a interface do Spotify Desevolvovido utilizando TypeScript, ReactJS e Tailwind CSS"
+          : "Recreated Spotify's user interface. Developed using TypeScript, ReactJS and Tailwind CSS.",
       image: spotifyUi,
       link: "https://github.com/diegoandersonn/spotify-ui",
     },
@@ -39,8 +39,8 @@ export default function Projects() {
       title: "Task Management App",
       description:
         language === "portuguese"
-          ? "Recriei a interface do Spotify Utilizando TypeScript, ReactJS e TailwindCss"
-          : "Recreated Spotify's user interface. Using TypeScript, ReactJS and TailwindCss.",
+          ? "Aplicação monorepo para gerenciamento de tarefas. Desenvolvida utilizando TypeScript, ReactJS, Tailwind CSS, NodeJS e Fastify."
+          : "Application monorepo for task management. Developed using TypeScript, ReactJS, Tailwind CSS, NodeJS and Fastify.",
       image: taskManagement,
       link: "https://github.com/diegoandersonn/task-management-app",
     },
@@ -48,9 +48,16 @@ export default function Projects() {
   return (
     <div className="flex flex-col gap-10 min-h-screen" id="Projects">
       <div>
-        <h1 className="text-zinc-700 text-4xl font-bold p-4">
-          {language === "portuguese" ? "Meus Projetos" : "My Projects"}
-        </h1>
+        <div className="p-4">
+          <h1 className="text-zinc-700 text-4xl font-bold">
+            {language === "portuguese" ? "Meus Projetos" : "My Projects"}
+          </h1>
+          <p className="text-zinc-500 text-sm ">
+            {language === "portuguese"
+              ? "Clique na imagem para ir ao repositório no GitHub!"
+              : "Click on the image to visit the GitHub repository!"}
+          </p>
+        </div>
         <ul>
           {projects.map((project) => (
             <li className="mr-4 ml-2 border-t border-b border-zinc-500">

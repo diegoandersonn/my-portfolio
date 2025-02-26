@@ -9,8 +9,8 @@ export default function App() {
     <div className="flex flex-col justify-between gap-10 min-h-screen bg-zinc-50">
       <Header />
       <Home />
-      <Projects />
       <About />
+      <Projects />
       <Footer />
     </div>
   );
