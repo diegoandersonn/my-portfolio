@@ -1,4 +1,4 @@
-import { LanguageContext } from "../context/language";
+import { LanguageContext } from "../context/language-context";
 import { useContext } from "react";
 
 export default function Footer() {

@@ -1,19 +1,22 @@
 import { useContext } from "react";
-import { LanguageContext } from "../context/language";
+import { LanguageContext } from "../context/language-context";
 import spotifyUi from "../assets/spotifyui.png";
 import futWorld from "../assets/futworld.png";
 import pomodoroApp from "../assets/pomodoroapp.png";
+import capputenoChallenge from "../assets/capputenochallenge.png";
 import taskManagement from "../assets/taskmanagement.png";
+import { ThemeContext } from "../context/theme-context";
 
 export default function Projects() {
   const { language } = useContext(LanguageContext);
+  const { theme } = useContext(ThemeContext);
   const projects = [
     {
       title: "FutWorld",
       description:
         language === "portuguese"
-          ? "Um projeto monorepo pessoal que permite o usuário criar times e jogadores. Desevolvovido utilizando TypeScript, ReactJS, Tailwind CSS, NodeJS and Fastify"
-          : "A personal monorepo project that allows the user to create teams and players. Developed using TypeScript, ReactJS, Tailwind CSS, NodeJS and Fastify",
+          ? "Um projeto monorepo pessoal que permite o usuário criar, filtrar, editar e remover times e jogadores e consome uma API publica. Desevolvovido utilizando TypeScript, ReactJS, Tailwind CSS, NodeJS e Fastify"
+          : "A personal monorepo project that allows the user to create, filter, edit and delete teams and players and consume a public API. Developed using TypeScript, ReactJS, Tailwind CSS, NodeJS and Fastify",
       image: futWorld,
       link: "https://github.com/diegoandersonn/fut-world",
     },
@@ -44,15 +47,32 @@ export default function Projects() {
       image: taskManagement,
       link: "https://github.com/diegoandersonn/task-management-app",
     },
+    {
+      title: "Capputeno Challenge",
+      description:
+        language === "portuguese"
+          ? "Um desafio FrontEnd proposto pela Rocketseat, onde o objetivo era criar um website para uma loja ficticia chamada Capputeno e implementar certas funcionalidades como um carrinhos de compras. Desenvolvido utilizando TypeScript, React, StyledComponents e consumindo uma API GraphQL"
+          : "A FrontEnd challenge proposed by Rocketseat, where the goal was to create a wesbsite for a fictional store called Capputeno and implement certain functionalities like a shopping cart. Developed using TypeScript, React, StyledComponents and consuming a GraphQL API",
+      image: capputenoChallenge,
+      link: "https://github.com/diegoandersonn/frontend-challenge-rocketseat",
+    },
   ];
   return (
     <div className="flex flex-col gap-10 min-h-screen" id="Projects">
       <div>
         <div className="p-4">
-          <h1 className="text-zinc-700 text-4xl font-bold">
+          <h1
+            className={` text-4xl font-bold ${
+              theme === "light" ? "text-zinc-700" : "text-zinc-300"
+            }`}
+          >
             {language === "portuguese" ? "Meus Projetos" : "My Projects"}
           </h1>
-          <p className="text-zinc-500 text-sm ">
+          <p
+            className={`text-sm ${
+              theme === "light" ? "text-zinc-500" : "text-zinc-200"
+            }`}
+          >
             {language === "portuguese"
               ? "Clique na imagem para ir ao repositório no GitHub!"
               : "Click on the image to visit the GitHub repository!"}
@@ -61,7 +81,7 @@ export default function Projects() {
         <ul>
           {projects.map((project) => (
             <li className="mr-4 ml-2 border-t border-b border-zinc-500">
-              <div className="flex m-4 ">
+              <div className="flex m-4">
                 <a href={project.link} target="/">
                   <img
                     src={project.image}
@@ -71,10 +91,18 @@ export default function Projects() {
                   />
                 </a>
                 <div className="flex flex-col gap-2 p-2 w-[70%]">
-                  <p className="text-3xl font-bold text-zinc-700">
+                  <p
+                    className={`text-3xl font-bold ${
+                      theme === "light" ? "text-zinc-700" : "text-zinc-300"
+                    }`}
+                  >
                     {project.title}
                   </p>
-                  <p className="text-md font-semibold text-zinc-500">
+                  <p
+                    className={`text-md font-semibold ${
+                      theme === "light" ? "text-zinc-500" : "text-zinc-200"
+                    }`}
+                  >
                     {project.description}
                   </p>
                 </div>
